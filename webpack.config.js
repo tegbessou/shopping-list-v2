@@ -35,4 +35,7 @@ module.exports = {
         filename: 'index.html',
         inject: 'body'
     })],
+    devServer:{
+        historyApiFallback: true,
+    }
 }
