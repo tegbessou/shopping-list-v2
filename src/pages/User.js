@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import UserProfil from './UserProfil';
-import UserList from './UserList';
+import UserProfil from '../components/UserProfil';
+import UserList from '../components/UserList';
 
 class User extends Component {
   render() {

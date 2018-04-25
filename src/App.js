@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import styles from './App.css';
-import Header from './Header';
-import Main from './Main';
+import Header from './components/Header';
+import Main from './components/Main';
+import FooterApp from './components/FooterApp';
 
 class App extends Component {
   render() {
     return (
-      <div className={styles.redBox}>
+      <div>
           <Header />
           <Main />
+          <FooterApp />
       </div>
     );
   }

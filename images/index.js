@@ -1,1 +1,1 @@
-export woodenLys from 'wooden-lys.jpeg';
+export logo from 'logo.png';
