@@ -3,7 +3,7 @@ import { Navbar, Button } from 'react-materialize'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import Login from '../pages/Login';
+import { Login } from '../pages/Login';
 
 import logo from '../../images/logo.png';
 import styles from './Header.css';
@@ -11,7 +11,6 @@ import styles from './Header.css';
 class Header extends Component {
     constructor(props) {
         super(props);
-        console.log(this.props)
         this.handleOpenModal = this.handleOpenModal.bind(this)
     }
 
@@ -40,7 +39,6 @@ class Header extends Component {
 }
 
 function mapStateToProps(state) {
-    console.log(state);
     const { loggingIn } = state.authentication;
 
     return {
