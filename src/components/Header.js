@@ -3,7 +3,9 @@ import { Navbar, Button } from 'react-materialize'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { Login } from '../pages/Login';
+import { Login } from '../components/Login';
+import { Register } from '../components/Register';
+import { Logout } from '../components/Logout';
 
 import logo from '../../images/logo.png';
 import styles from './Header.css';
@@ -11,11 +13,16 @@ import styles from './Header.css';
 class Header extends Component {
     constructor(props) {
         super(props);
-        this.handleOpenModal = this.handleOpenModal.bind(this)
+        this.handleOpenModalLogin = this.handleOpenModalLogin.bind(this)
+        this.handleOpenModalRegister = this.handleOpenModalRegister.bind(this)
     }
 
-    handleOpenModal() {
+    handleOpenModalLogin() {
         $('#login').modal('open');
+    }
+
+    handleOpenModalRegister() {
+        $('#register').modal('open');
     }
 
     render() {
@@ -25,14 +32,20 @@ class Header extends Component {
             <div>
                 <Navbar brand={<img src={logo} className={styles.logo} />} left>
                 { loggingIn
-                    ? <Link to='/user'>User</Link>
-                    : <li>
-                        <a onClick={this.handleOpenModal}>Login
-                        </a>
-                    </li>
+                    ? <div><li><Link to='/user'>User</Link></li>
+                        <li><Logout /></li></div>
+                    : <div>
+                        <li>
+                            <a onClick={this.handleOpenModalLogin}>Login</a>
+                        </li>
+                        <li>
+                            <a onClick={this.handleOpenModalRegister}>Register</a>
+                        </li>
+                    </div>
                 }
                 </Navbar>
                 <Login />
+                <Register />
             </div>
         );
     }
@@ -40,6 +53,7 @@ class Header extends Component {
 
 function mapStateToProps(state) {
     const { loggingIn } = state.authentication;
+    console.log(state);
 
     return {
         loggingIn

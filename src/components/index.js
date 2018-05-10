@@ -4,3 +4,6 @@ export Main from './Main.js';
 export UserList from './UserList.js';
 export UserProfil from './UserProfil.js';
 export PrivateRoute from './PrivateRoute.js';
+export Logout from './Logout.js';
+export * from './Login';
+export * from './Register.js';
