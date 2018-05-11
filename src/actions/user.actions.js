@@ -1,6 +1,7 @@
 import { userConstants } from '../constants/user.constants';
 import { history } from '../helpers';
 import { userServices } from '../services/user.services';
+import { alertActions } from './alert.actions';
 
 export const userActions = {
     login,
@@ -16,9 +17,12 @@ function login(login, password) {
             .then(
                 user => {
                     dispatch(success(user));
+                    $('#login').modal('close');
+                    dispatch(alertActions.clear());
                 },
                 error => {
                     dispatch(failure(error));
+                    dispatch(alertActions.error(error));
                 }
             );
     }

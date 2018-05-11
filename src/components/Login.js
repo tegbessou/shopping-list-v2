@@ -3,6 +3,7 @@ import { Modal, Button, Row, Input } from 'react-materialize';
 import { connect } from 'react-redux';
 
 import { Register } from './Register';
+import { Alert } from './Alert';
 import { userActions } from '../actions/user.actions';
 
 import styles from './Login.css';
@@ -32,7 +33,6 @@ class Login extends Component {
 
         if (login && password) {
             dispatch(userActions.login(login, password));
-            $('#login').modal('close');
             this.resetForm();
         }
     }
@@ -70,6 +70,7 @@ class Login extends Component {
                         <span className={isSubmitted && (!password || !login) ? styles.error : ''}>* Input required</span>
                     }
                 >
+                    <Alert suffix="login" />
                     <form id="form-login" onSubmit={this.handleSubmit}>
                         <Row>
                             <Input

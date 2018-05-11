@@ -7,3 +7,4 @@ export PrivateRoute from './PrivateRoute.js';
 export Logout from './Logout.js';
 export * from './Login';
 export * from './Register.js';
+export * from './Alert';

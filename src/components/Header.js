@@ -53,7 +53,6 @@ class Header extends Component {
 
 function mapStateToProps(state) {
     const { loggingIn } = state.authentication;
-    console.log(state);
 
     return {
         loggingIn
